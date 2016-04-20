@@ -26,7 +26,7 @@ Pushのお知らせ♪
 [hr]【<%= action %>】
 <% if (typeof comment != 'undefined') { %><%= comment.body %><% } %><%
 %><% if (action == 'opened' && typeof issue.body != 'undefined') { %><%= issue.body %><% } %><%
-%>[hr]ユーザー：<%= comment.user.login %>
+%>[hr]ユーザー：<% if (typeof comment != 'undefined') { %><%= comment.user.login %><% } else { %><%= issue.user.login %><% } %>
 URL：<%= issue.html_url %>
 [/info]
 <% } %><%
