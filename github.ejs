@@ -38,4 +38,13 @@ PR Diff Commentのお知らせ♪
 %>[hr]ユーザー：<%= comment.user.login %>
 URL：<%= comment.html_url %>
 [/info]
+<% } %><%
+%><% if (typeof review != 'undefined' && typeof pull_request != 'undefined') { %>
+PR Review Commentのお知らせ♪
+[info]<%= pull_request.html_url %>
+[hr]【<%= action %>】
+<%= review.body %><%
+%>[hr]ユーザー：<%= review.user.login %>
+URL：<%= review.html_url %>
+[/info]
 <% } %>
