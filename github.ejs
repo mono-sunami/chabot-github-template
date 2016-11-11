@@ -39,7 +39,7 @@ PR Diff Commentのお知らせ♪
 URL：<%= comment.html_url %>
 [/info]
 <% } %><%
-%><% if (typeof review != 'undefined' && typeof pull_request != 'undefined') { %>
+%><% if (typeof review != 'undefined' && review.body != null && typeof pull_request != 'undefined') { %>
 PR Review Commentのお知らせ♪
 [info]<%= pull_request.html_url %>
 [hr]【<%= action %>】
