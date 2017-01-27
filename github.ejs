@@ -1,22 +1,22 @@
 <% if (typeof head_commit != 'undefined') { %>
 Pushのお知らせ♪
 [info]<%= head_commit.message %>
-[hr]変更のあったファイル：
+[hr]変更のあったファイル:
 <% if (head_commit.added.length) { %>【追加】
-<% head_commit.added.forEach(function (file) { %>　<%= file %>
+<% head_commit.added.forEach(function (file) { %> <%= file %>
 <% }) %><% } else { %>【追加】
-　なし
+なし
 <% } %><% if (head_commit.removed.length) { %>【削除】
-<% head_commit.removed.forEach(function (file) { %>　<%= file %>
+<% head_commit.removed.forEach(function (file) { %> <%= file %>
 <% }) %><% } else { %>【削除】
-　なし
+なし
 <% } %><% if (head_commit.modified.length) { %>【修正】
-<% head_commit.modified.forEach(function (file) { %>　<%= file %>
+<% head_commit.modified.forEach(function (file) { %> <%= file %>
 <% }) %><% } else { %>【修正】
-　なし
-<% } %>[hr]リポジトリ：<%= repository.name %>
-コミット　：<%= head_commit.url %>
-コミッター：<%= head_commit.committer.username %>
+なし
+<% } %>[hr]リポジトリ : <%= repository.name %>
+コミット : <%= head_commit.url %>
+コミッター : <%= head_commit.committer.username %>
 [/info]
 <% } %><%
 %><% if (typeof issue != 'undefined') { %>
@@ -26,7 +26,7 @@ Pushのお知らせ♪
 [hr]【<%= action %>】
 <% if (typeof comment != 'undefined') { %><%= comment.body %><% } %><%
 %><% if (action == 'opened' && typeof issue.body != 'undefined') { %><%= issue.body %><% } %><%
-%>[hr]ユーザー：<% if (typeof comment != 'undefined') { %><%= comment.user.login %><% } else { %><%= issue.user.login %><% } %>
+%>[hr]ユーザー : <% if (typeof comment != 'undefined') { %><%= comment.user.login %><% } else { %><%= issue.user.login %><% } %>
 URL：<%= issue.html_url %>
 [/info]
 <% } %><%
@@ -35,7 +35,7 @@ PR Diff Commentのお知らせ♪
 [info]<%= pull_request.html_url %>
 [hr]【<%= action %>】
 <%= comment.body %><%
-%>[hr]ユーザー：<%= comment.user.login %>
+%>[hr]ユーザー : <%= comment.user.login %>
 URL：<%= comment.html_url %>
 [/info]
 <% } %><%
@@ -44,7 +44,15 @@ PR Review Commentのお知らせ♪
 [info]<%= pull_request.html_url %>
 [hr]【<%= action %>】
 <%= review.body %><%
-%>[hr]ユーザー：<%= review.user.login %>
-URL：<%= review.html_url %>
+%>[hr]ユーザー : <%= review.user.login %>
+URL:<%= review.html_url %>
+[/info]
+<% } %><%
+%><% if (typeof pages != 'undefined') { %>
+Wikiのお知らせ♪
+[info]<%= pages[0].title %>
+[hr]【<%= pages[0].action %>】
+<%= pages[0].html_url %><%
+%>[hr]ユーザー : <%= sender.login %>
 [/info]
 <% } %>
