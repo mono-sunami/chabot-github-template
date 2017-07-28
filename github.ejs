@@ -34,7 +34,7 @@ URL：<%= issue.html_url %>
 PR Diff Commentのお知らせ♪
 [info]<%= pull_request.html_url %>
 [hr]【<%= action %>】
-<%= comment.body %><%
+<% if (action != 'edited') { %><%= comment.body %> <% } %><%
 %>[hr]ユーザー : <%= comment.user.login %>
 URL：<%= comment.html_url %>
 [/info]
